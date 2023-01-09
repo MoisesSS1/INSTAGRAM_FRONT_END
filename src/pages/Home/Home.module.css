@@ -1,0 +1,87 @@
+.container_home{
+    display: flex;
+    flex-direction: row;
+    width: 100vw;
+    height: 100vh;
+    background-color: rgb(255,255,255);
+}
+
+/* Estilizando a div com imagens */
+.imgs{
+    display: flex;
+    justify-content: right;
+    align-items: center;
+    height: 100%;
+    width: 100%;
+}
+.imgs img{
+    width: 250px;
+    height: 500px;
+    border: 10px solid black;
+    border-radius: 30px;
+    background-color: black;
+}
+.imgs, .options{
+    width: 50%;
+}
+
+/* Estilizando forms */
+
+.options{
+    margin-left: 40px;
+}
+
+.form_login{
+    margin-top: 100px;
+}
+
+.form_login form img{
+    height: 60px;
+    background-repeat: no-repeat;
+    margin-bottom: 20px;
+}
+
+.options form{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+}
+
+.form_login, .option_createAccount{
+    border: 1px solid rgb(171, 171, 171);
+    width: 350px;
+    background-color: rgb(250,250,250);
+}
+
+.form_login{
+    height: 400px;
+}
+
+.option_createAccount{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 30px;
+    height: 70px;
+}
+
+.option_createAccount span a{
+    color: #0095f6 ;
+    text-decoration: none;
+}
+
+input{
+    margin-top: 15px;
+    border: 1px solid rgb(171, 171, 171);
+    padding: 15px;
+    background-color: rgb(250,250,250);
+    width: 250px;
+}
+
+input[type='submit']{
+    background-color: #0095f6 ;
+    border-style: none;
+    border-radius: 5px;
+}
