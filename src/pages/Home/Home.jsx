@@ -24,10 +24,10 @@ const Home = () => {
               <form >
                   <img src={instagramLogin} alt="instagram" />
                   <label htmlFor="login">
-                    <input type="e-mail" name="login" id="login" placeholder='Login com e-mail'/>
+                    <input type="text" name="login" id="login" placeholder='Login com e-mail' required/>
                   </label>
                   <label htmlFor="password">
-                    <input type="password" name="password" id="password" placeholder='Senha'/>
+                    <input type="password" name="password" id="password" placeholder='Senha' required/>
                   </label>
 
                   <label htmlFor="submit">

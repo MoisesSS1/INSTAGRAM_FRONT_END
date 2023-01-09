@@ -17,15 +17,26 @@ const CreateUser = () => {
               <form >
                   <img src={instagramLogin} alt="instagram" />
                     <p>Inscreva-se para ver fotos e vídeos de seus amigos.</p>
-                  <label htmlFor="login">
-                    <input type="e-mail" name="login" id="login" placeholder='Login com e-mail'/>
-                  </label>
-                  <label htmlFor="password">
-                    <input type="password" name="password" id="password" placeholder='Senha'/>
+
+                    <label htmlFor="name">
+                    <input type="text" name="name" id="name" placeholder='Digite seu nome' required/>
                   </label>
 
+                  <label htmlFor="email">
+                    <input type="email" name="email" id="email" placeholder='Digite se e-mail' required/>
+                  </label>
+                  <label htmlFor="password">
+                    <input type="password" name="password" id="password" placeholder='Digite sua senha' required/>
+                  </label>
+
+                  <label htmlFor="phone">
+                    <input type="phone" name="phone" id="phone" placeholder='Digite seu telefone' required/>
+                  </label>
+
+
+
                   <label htmlFor="submit">
-                    <input type="submit" value="Log in" /> 
+                    <input type="submit" value="Criar conta" /> 
                   </label>      
               </form>
             </div>
