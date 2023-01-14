@@ -1,6 +1,10 @@
-import {Link} from 'react-router-dom'
-import {useState} from 'react'
+import {Link, useNavigate} from 'react-router-dom'
+import {useState, useContext} from 'react'
 
+//Context
+import UserContext from '../../hooks/UserContext'
+
+//api
 import api from '../../utils/api'
 
 //css
@@ -11,7 +15,10 @@ import instagramLogin from '../../assets/instagramLogin.svg'
 
 const CreateUser = () => {
 
+  const navegate = useNavigate()
   const [user, setUser] = useState({})
+  const [auth,setAuth] = useContext(UserContext)
+
 
   function handleOnChange(e){
     setUser({...user,[e.target.name]:e.target.value})
@@ -20,7 +27,18 @@ const CreateUser = () => {
   async function  handleSumit(e) {
     e.preventDefault()
 
-    api.post('user/create', user)
+  //Envia dados de cadastro para a api
+  //diz ao sistema que usuario esta logado para renderizações condicionais
+
+    await api.post('user/create', user).then((res)=>{
+
+        localStorage.setItem('token',res.data.token)
+        setAuth(true)
+        return navegate('/posts')
+      }).catch((error)=>{
+        console.log(error)
+      })
+
     
   }
 
@@ -34,18 +52,46 @@ const CreateUser = () => {
                     <p>Inscreva-se para ver fotos e vídeos de seus amigos.</p>
 
                     <label htmlFor="name">
-                    <input onChange={(e)=>handleOnChange(e)} type="text" name="name" id="name" placeholder='Digite seu nome' required/>
+                      <input onChange={(e)=>handleOnChange(e)}
+                          type="text"
+                          name="name"
+                          id="name"
+                          placeholder='Digite seu nome'
+                          value={ user.name}
+                          required
+                      />
                   </label>
 
                   <label htmlFor="email">
-                    <input onChange={(e)=>handleOnChange(e)} type="email" name="email" id="email" placeholder='Digite se e-mail' required/>
+                    <input onChange={(e)=>handleOnChange(e)}
+                      type="email" 
+                      name="email" 
+                      id="email" 
+                      placeholder='Digite se e-mail' 
+                      value={ user.email } 
+                      required
+                    />
                   </label>
                   <label htmlFor="password">
-                    <input onChange={(e)=>handleOnChange(e)} type="password" name="password" id="password" placeholder='Digite sua senha' required/>
+                    <input onChange={(e)=>handleOnChange(e)}
+                     type="password" 
+                     name="password" 
+                     id="password" 
+                     placeholder='Digite sua senha' 
+                     value={ user.password } 
+                     required
+                     />
                   </label>
 
                   <label htmlFor="phone">
-                    <input onChange={(e)=>handleOnChange(e)} type="phone" name="phone" id="phone" placeholder='Digite seu telefone' required/>
+                    <input onChange={(e)=>handleOnChange(e)} 
+                      type="phone" 
+                      name="phone" 
+                      id="phone" 
+                      placeholder='Digite seu telefone' 
+                      value={ user.phone } 
+                      required
+                    />
                   </label>
 
                   <label htmlFor="submit">
