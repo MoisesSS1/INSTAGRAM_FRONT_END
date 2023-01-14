@@ -1,6 +1,5 @@
-// import { useState,useEffect } from 'react'
-
-import {Link} from 'react-router-dom'
+import { useState } from 'react'
+import {Link, useNavigate} from 'react-router-dom'
 
 //css
 import Style from './Home.module.css'
@@ -9,7 +8,45 @@ import appInstagram from '../../assets/appInstagram.png'
 import appInstagram2 from '../../assets/appInstagram2.png'
 import instagramLogin from '../../assets/instagramLogin.svg'
 
+//utils
+import api from '../../utils/api'
+
+//Context
+import { useContext } from 'react'
+import UserContext from '../../hooks/UserContext'
+
 const Home = () => {
+
+  const [user,setUser] = useState({})
+
+  //Context
+  const navegate = useNavigate()
+  const [auth,setAuth] = useContext(UserContext)
+
+
+  function handleOnChange(e) {
+    setUser({...user,[e.target.name]:e.target.value})
+    console.log(user)
+  }
+
+  //Login
+  async function handleSubmit(e) {
+    e.preventDefault()
+    //enviando auth para o context e token para o localStorage
+
+          api.post('user/login',user)
+          .then((res)=>{
+            const token = res.data.token
+            localStorage.setItem('token',token)
+            setAuth(true)
+            return navegate('/posts')
+          })
+          .catch((error)=>{
+            console.log(error)
+          })
+
+
+  }
 
   return (
     <div className={Style.container_home}>
@@ -21,13 +58,13 @@ const Home = () => {
         <div className={Style.options}>
             <div className={Style.form_login}>
 
-              <form >
+              <form onSubmit={(e)=>handleSubmit(e)} >
                   <img src={instagramLogin} alt="instagram" />
                   <label htmlFor="login">
-                    <input type="text" name="login" id="login" placeholder='Login com e-mail' required/>
+                    <input onChange={(e)=>handleOnChange(e)} type="email" name="login" id="login" placeholder='Login com e-mail' value={user.login} required/>
                   </label>
                   <label htmlFor="password">
-                    <input type="password" name="password" id="password" placeholder='Senha' required/>
+                    <input onChange={(e)=>handleOnChange(e)} type="password" name="password" id="password" placeholder='Senha'  value={user.password} required/>
                   </label>
 
                   <label htmlFor="submit">
