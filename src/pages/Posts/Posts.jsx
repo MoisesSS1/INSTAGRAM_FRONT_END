@@ -22,22 +22,27 @@ const Posts = () => {
 
     },[])
 
+
+    //consumir api que devolve o usuario com o id que vem do post para incluir na imagem
+    api.get()
+
     console.log(posts.map((post)=>{
-      return post.description
+      return post.link
     }))
 
 
 
   return (
-    <div className={Styles.container}>
+    <div className={Styles.container}>    
 
-      <h1>Posts</h1>
+          {posts && posts.map((post, index)=>{
+              return<div className={Styles.cardImage}>
+                <p className={Styles.nameUser}><span id={Styles.name}>Nome </span></p>
 
-      <ul>
-        {posts && posts.map((post, index)=>{
-          return <li key={index}>{post.description}</li>
-        })}
-      </ul>
+                <img src={post.link} alt={post.description}/>
+                <p> <span id={Styles.name}>Nome</span>   {`${post.description}`}</p>
+              </div>
+            })}
 
 
         

@@ -1,8 +1,37 @@
 .container{
+    margin: 20px 30px;
     display: flex;
-    flex-direction: row;
+    flex-direction: column;
     justify-content: center;
-    text-align: center;
+    text-align: left;
     align-items: center;
-    margin: 40px auto;
+}
+
+.cardImage{
+    width: 400px;
+    height: 550px;
+    margin: 30px;
+    
+}
+
+.cardImage p:nth-last-child(1){
+    padding-bottom: 30px;
+    padding-top: 5px;
+    border-bottom: 1px solid rgb(219,219,219);
+
+}
+
+.cardImage img{
+    width: 100%;
+    height: 500px;
+    object-fit: cover;
+}
+
+.nameUser{
+    text-align: left;
+    padding-bottom: 10px;
+}
+
+#name{
+    font-weight: bold;
 }
