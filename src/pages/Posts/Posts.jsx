@@ -1,5 +1,4 @@
-import { useContext, useEffect, useState } from 'react'
-import UserContext from '../../hooks/UserContext'
+import { useEffect, useState } from 'react'
 
 //api
 import api from '../../utils/api'
@@ -8,7 +7,6 @@ import api from '../../utils/api'
 import Styles from './Posts.module.css'
 
 const Posts = () => {
-    const [auth,setAuth] = useContext(UserContext)
     const [posts,setPosts] = useState([])
 
     useEffect(()=>{
