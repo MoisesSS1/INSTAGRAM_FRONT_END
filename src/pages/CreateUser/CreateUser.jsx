@@ -28,14 +28,16 @@ const CreateUser = () => {
     e.preventDefault()
 
   //Envia dados de cadastro para a api
-  //diz ao sistema que usuario esta logado para renderizações condicionais
+  //diz ao sistema que usuario esta logado para renderizações condicionais  
 
     await api.post('user/create', user).then((res)=>{
-
         localStorage.setItem('token',res.data.token)
+        localStorage.setItem('auth',res.data.auth)
         setAuth(true)
-        return navegate('/posts')
-      }).catch((error)=>{
+        navegate('/posts')
+        
+      })
+      .catch((error)=>{
         console.log(error)
       })
 

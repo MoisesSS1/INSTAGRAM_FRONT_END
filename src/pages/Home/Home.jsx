@@ -70,15 +70,12 @@ const Home = () => {
                   <label htmlFor="submit">
                     <input type="submit" value="Log in" /> 
                   </label>
-
-                            
+        
               </form>
             </div>
 
             <div className={Style.option_createAccount}>
-
               <p>Não possui conta? <span><Link to='/user/create'>Criar conta</Link></span></p>
-
             </div>
 
         </div>

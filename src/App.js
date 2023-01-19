@@ -27,7 +27,9 @@ function App() {
                           <Route path="/" element={<Home/>} />
                           <Route path="/user/create" element={<CreateUser/>} />                    
                           <Route path="/posts" element={<Posts/>} />
-
+                          <Route path="/post/create" element={<Posts/>} />
+                          <Route path="/post/myposts" element={<Posts/>} />
+                          <Route path="/user/perfil" element={<Posts/>} />
                     </Routes>
             </BrowserRouter>
       </UserContext.Provider>

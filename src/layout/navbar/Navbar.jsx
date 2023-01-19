@@ -5,13 +5,26 @@ import Styles from './Navbar.module.css'
 
 //logo
 import InstagramLogo from '../../assets/instagramLogo.png'
-import { useContext } from 'react'
+import { useContext, useEffect } from 'react'
 import UserContext from '../../hooks/UserContext'
 
 const Navbar = () => {
 
-  const [auth] = useContext(UserContext)
+  useEffect(()=>{
+    const token = localStorage.getItem('token')
+    const auth = localStorage.getItem('auth')
 
+    if(auth){
+      setAuth(auth)
+    }
+
+  },[])
+
+  const [auth,setAuth] = useContext(UserContext)
+
+  function handleOnClick(e) {
+    console.log(e)
+  }
 
 
   return (
@@ -23,9 +36,10 @@ const Navbar = () => {
           </div>
           <div className={Styles.options_pages}>
             <ul className={Styles.container_li}>
-              <li><Link to="/">Entrar</Link></li>
-              <li><Link to="/user/create">Criar conta</Link></li>
-              <li><Link to="/posts">Posts</Link></li>
+              <li><Link to="/post/create">Cria post</Link></li>
+              <li><Link to="/user/perfil">Perfil</Link></li>
+              <li><Link to="/post/myposts">Meus post´s</Link></li>
+              <li onClick={(e)=>handleOnClick(e)}>Sair</li>
             </ul>
           </div>  
     <Outlet />
