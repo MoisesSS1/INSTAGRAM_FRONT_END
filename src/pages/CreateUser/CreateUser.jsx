@@ -37,10 +37,6 @@ const CreateUser = () => {
         navegate('/posts')
         
       })
-      .catch((error)=>{
-        console.log(error)
-      })
-
     
   }
 

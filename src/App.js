@@ -4,11 +4,11 @@ import { useState } from 'react';
 
 import UserContext from './hooks/UserContext'
 
-
 //pages
 import CreateUser from './pages/CreateUser/CreateUser'
 import Home from './pages/Home/Home';
 import Posts from './pages/Posts/Posts';
+import CreatePost from './pages/CreatePost/CreatePost'
 
 //layouts
 import Navbar from './layout/navbar/Navbar';
@@ -27,7 +27,7 @@ function App() {
                           <Route path="/" element={<Home/>} />
                           <Route path="/user/create" element={<CreateUser/>} />                    
                           <Route path="/posts" element={<Posts/>} />
-                          <Route path="/post/create" element={<Posts/>} />
+                          <Route path="/post/create" element={<CreatePost/>} />
                           <Route path="/post/myposts" element={<Posts/>} />
                           <Route path="/user/perfil" element={<Posts/>} />
                     </Routes>

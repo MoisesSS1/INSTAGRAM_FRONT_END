@@ -23,10 +23,13 @@ const Home = () => {
   const navegate = useNavigate()
   const [auth,setAuth] = useContext(UserContext)
 
+  if(auth){
+    navegate('/posts')
+  }
+
 
   function handleOnChange(e) {
     setUser({...user,[e.target.name]:e.target.value})
-    console.log(user)
   }
 
   //Login
@@ -41,12 +44,9 @@ const Home = () => {
             setAuth(true)
             return navegate('/posts')
           })
-          .catch((error)=>{
-            console.log(error)
-          })
-
-
   }
+
+
 
   return (
     <div className={Style.container_home}>

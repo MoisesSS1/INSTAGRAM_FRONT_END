@@ -12,7 +12,7 @@
 .logo img{
     padding-left: 10px;
     width: 40px;
-    height: 34px;
+    height: 30px;
 }
 
 .container_li, .continer_nav{
@@ -23,13 +23,14 @@
     align-items: center;
 }
 
-.container_li li{
+.container_li li  {
     padding-right: 15px;
     list-style: none;
 }
 
-a{
+a, li{
     text-decoration: none;
-    color: #563f90;
+    color: #0095f6 ;
     font-size: 18px;
+    cursor: pointer;
 }
