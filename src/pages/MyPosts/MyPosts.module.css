@@ -1,0 +1,44 @@
+.container{
+    padding-top: 30px;
+    width: 100vw;
+    text-align: center;
+}
+
+.no_post{
+    margin: 30px 0px;
+}
+
+.container_post{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-around;
+}
+
+.card_post{
+    width: 300px;
+    height: 450px;
+    margin: 20px;
+}
+
+.card_post img{
+    width: 100%;
+    height: 300px;
+}
+
+.card_post p{
+    padding: 10px 0px 20px;
+}
+
+.card_post input[type="submit"]{
+    color: red;
+    background-color: rgb(197, 76, 76);
+    font-size: bold;
+}
+
+.card_post input[type="submit"]:hover{
+    color: rgb(1, 0, 0);
+    cursor: pointer;
+}
+
+

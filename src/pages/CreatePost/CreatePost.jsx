@@ -1,9 +1,12 @@
 //react
 import {useState, useContext} from 'react'
-import { redirect, useNavigate } from 'react-router-dom'
+import { useNavigate } from 'react-router-dom'
 
 //Context
 import UserContext from '../../hooks/UserContext'
+
+//components
+import NoLogged from '../../components/NoLogged'
 
 //csss
 import Style from './CreatePost.module.css'
@@ -56,8 +59,6 @@ const CreatePost = () => {
   }
 }
 
-
-
   return (
             <>
              {auth ? 
@@ -86,7 +87,7 @@ const CreatePost = () => {
                         </div>
                     </div>):(
                       <div>
-                        {navegate('/')}
+                        <NoLogged/>
                       </div>
                 )}
           </>
