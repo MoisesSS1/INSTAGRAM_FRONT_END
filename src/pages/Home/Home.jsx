@@ -41,6 +41,7 @@ const Home = () => {
           .then((res)=>{
             const token = res.data.token
             localStorage.setItem('token',token)
+            localStorage.setItem('auth', true)
             setAuth(true)
             return navegate('/posts')
           })
