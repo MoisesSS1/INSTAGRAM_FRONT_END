@@ -11,7 +11,6 @@ import UserContext from '../../hooks/UserContext'
 const Navbar = () => {
 
   useEffect(()=>{
-    const token = localStorage.getItem('token')
     const auth = localStorage.getItem('auth')
 
     if(auth){
@@ -23,7 +22,9 @@ const Navbar = () => {
   const [auth,setAuth] = useContext(UserContext)
 
   function handleOnClick(e) {
-    console.log(e)
+    setAuth(false)
+    localStorage.removeItem('token')
+    localStorage.removeItem('auth')
   }
 
 
@@ -36,8 +37,8 @@ const Navbar = () => {
           </div>
           <div className={Styles.options_pages}>
             <ul className={Styles.container_li}>
+              <li><Link to="/posts">Posts</Link></li>
               <li><Link to="/post/create">Cria post</Link></li>
-              <li><Link to="/user/perfil">Perfil</Link></li>
               <li><Link to="/post/myposts">Meus post´s</Link></li>
               <li onClick={(e)=>handleOnClick(e)}>Sair</li>
             </ul>
