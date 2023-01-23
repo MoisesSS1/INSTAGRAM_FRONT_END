@@ -31,7 +31,7 @@ const Home = () => {
   function handleOnChange(e) {
     setUser({...user,[e.target.name]:e.target.value})
   }
-
+ 
   //Login
   async function handleSubmit(e) {
     e.preventDefault()

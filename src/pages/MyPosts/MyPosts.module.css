@@ -31,13 +31,14 @@
 }
 
 .card_post input[type="submit"]{
-    color: red;
+    color: rgb(219, 219, 219);
     background-color: rgb(197, 76, 76);
     font-size: bold;
 }
 
 .card_post input[type="submit"]:hover{
     color: rgb(1, 0, 0);
+    background-color: rgb(208, 111, 111);
     cursor: pointer;
 }
 

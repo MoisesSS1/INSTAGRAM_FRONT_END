@@ -70,3 +70,42 @@ input[type='submit']{
     border-style: none;
     border-radius: 5px;
 }
+
+
+/*Responsividade */
+@media (max-width: 1000px){
+
+    .imgs{
+        display:none;
+    }
+
+    .options{
+     display: flex;
+     justify-content: center;
+     align-items: center;
+     flex-direction: column;
+     width: 100vw;
+     margin-left: 0px;
+    }
+
+    .form_login form img{
+        height: 40px;
+        background-repeat: no-repeat;
+        margin-bottom: 15px;
+    }
+    
+
+    .form_login{
+        margin-top: 0px;
+    }
+
+    .form_login, .option_createAccount{
+        width: 250px;
+    }
+
+    .form_login input{
+        margin-top: 15px;
+        width: 150px;
+    }
+
+}

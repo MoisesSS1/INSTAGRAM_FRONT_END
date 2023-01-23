@@ -51,3 +51,13 @@ input[type='submit']{
 input[type='submit']:hover {
     background-color:#057fdd ;
 }
+
+
+/* Responsividade */
+
+@media (max-width:1000px){
+    .form{
+        margin-left: 0px;
+    }
+    
+}

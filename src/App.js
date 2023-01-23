@@ -12,7 +12,6 @@ import CreateUser from './pages/CreateUser/CreateUser'
 import Home from './pages/Home/Home';
 import Posts from './pages/Posts/Posts';
 import CreatePost from './pages/CreatePost/CreatePost'
-import Perfil from './pages/Perfil/Perfil';
 import MyPosts from './pages/MyPosts/MyPosts';
 
 function App() {
@@ -30,7 +29,6 @@ function App() {
                           <Route path="/posts" element={<Posts/>} />
                           <Route path="/post/create" element={<CreatePost/>} />
                           <Route path="/post/myposts" element={<MyPosts/>} />
-                          <Route path="/user/perfil" element={<Perfil/>} />
                     </Routes>
             </BrowserRouter>
       </UserContext.Provider>

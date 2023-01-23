@@ -26,13 +26,13 @@
 }
 
 /* Estilizando forms */
-
 .options{
     margin-left: 40px;
 }
 
 .form_login{
     margin-top: 100px;
+    height: 400px;
 }
 
 .form_login form img{
@@ -53,10 +53,6 @@
     border: 1px solid rgb(171, 171, 171);
     width: 350px;
     background-color: rgb(250,250,250);
-}
-
-.form_login{
-    height: 400px;
 }
 
 .option_createAccount{
@@ -88,4 +84,43 @@ input[type='submit']{
 
 input[type='submit']:hover {
     background-color:#057fdd ;
+}
+
+/*Responsividade */
+@media (max-width: 1000px){
+
+    .imgs{
+        display:none;
+    }
+
+    .options{
+     display: flex;
+     justify-content: center;
+     align-items: center;
+     flex-direction: column;
+     width: 100vw;
+     margin-left: 0px;
+    }
+
+    .form_login form img{
+        height: 40px;
+        background-repeat: no-repeat;
+        margin-bottom: 15px;
+    }
+    
+
+    .form_login{
+        margin-top: 0px;
+        height: 350px;
+    }
+
+    .form_login, .option_createAccount{
+        width: 250px;
+    }
+
+    .form_login input{
+        margin-top: 15px;
+        width: 150px;
+    }
+
 }

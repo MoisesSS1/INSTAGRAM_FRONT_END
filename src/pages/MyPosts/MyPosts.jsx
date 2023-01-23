@@ -1,5 +1,5 @@
 import {useEffect, useState, useContext} from 'react'
-import { Link, redirect, useNavigate } from 'react-router-dom'
+import { Link } from 'react-router-dom'
 
 //Contextos
 import UserContext from '../../hooks/UserContext'
@@ -15,9 +15,7 @@ import NoLogged from '../../components/NoLogged'
 
 const MyPosts = () => {
 
-  const navegate = useNavigate()
-
-  const [auth,setAuth] = useContext(UserContext)
+  const [auth] = useContext(UserContext)
   const [posts, setPosts] = useState([])
   const [idPostEdit, setIdPostEdit] = useState()
   const token = localStorage.getItem('token')
@@ -31,7 +29,7 @@ const MyPosts = () => {
       setPosts(res.data.data)
     })
 
-  },[])
+  },[idPostEdit,token])
 
   function handleSubmit(e) {
     e.preventDefault()
@@ -41,7 +39,9 @@ const MyPosts = () => {
     },{
     headers:{
       Authorization:`Bearer ${token}`
-    }})
+    }}).then(()=>{
+      setIdPostEdit('')
+    })
     
     
   }
@@ -72,11 +72,7 @@ const MyPosts = () => {
                   <img src={post.link} alt={post.description} />
 
                   <p>{post.description}</p>
-
                  <form onSubmit={(e)=>handleSubmit(e)}>
-                      <label htmlFor="submit">
-                         <Link to={`/post/edit/${post._id}`}>Editar post</Link> 
-                        </label>
 
                         <label htmlFor="submit">
                           <input onClick={()=>setIdPostEdit(post._id)} type="submit" value="Excluir Post" /> 
