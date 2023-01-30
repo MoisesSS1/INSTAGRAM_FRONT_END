@@ -5,8 +5,6 @@ import App from './App';
 import reportWebVitals from './reportWebVitals';
 
 app = express()
-    app.use(express.static('reactFolderName/build'));
-    app.get('*', (req, res) => res.sendFile(path.resolve(__dirname, 'reactFolderName', 'build', 'index.html')));
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
